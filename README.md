@@ -10,8 +10,8 @@ The basic idea is:
 This project is super rough, feel free to make it way better :)
 
 #Dependancies
-You need the followig:
-1. Petfinder python library: https://pypi.python.org/pypi/petfinder/
+You need the followig:<br>
+1. Petfinder python library: https://pypi.python.org/pypi/petfinder/ <br>
 2. sqlite3: https://www.sqlite.org/
 
 #Usage
