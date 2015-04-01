@@ -3,9 +3,9 @@ Python scripts that use the petfinder API to create a basic html page listing pe
 
 I got tired of trying to click through the petfinder website, so I took a couple hours and used the petfinder api to create a basic web page containing the pets I was looking for.
 
-The basic idea is:
-1. findPets.py uses the api to pull pet info into an sqlite3 database
-2. selectPets.py uses a query to select pets from the sqlite3 database and create a basic web page (pets.html)
+The basic idea is:<br>
+1. findPets.py uses the api to pull pet info into an sqlite3 database<br>
+2. selectPets.py uses a query to select pets from the sqlite3 database and create a basic web page (pets.html)<br>
 
 This project is super rough, feel free to make it way better :)
 
