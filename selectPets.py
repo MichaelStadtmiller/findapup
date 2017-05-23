@@ -30,7 +30,7 @@ with con:
 
     cur.execute("""select state,id,breeds,age,lastUpdate,name,description,breeds,age,mix
                 from dogs
-                where state in ('ME')
+                where state in ('OH')
                 --and description like '%calm%'
                 --and description like '%recall%'
                 --and description like '%leash%'
@@ -67,7 +67,6 @@ with con:
         html_str = html_str + "<p>" + row[5] + "<p>"
         html_str = html_str + "<p>" + row[6] + "<p>"
         html_str = html_str + "<p>" + row[7] + "<p>"
-        html_str = html_str + "<p>" + row[8] + "<p>"
         html_str = html_str + "<p>Mix:" + row[9] + "<p>"
         html_str = html_str + "<p>" + row[4] + "<p>"
         html_str = html_str + "<p>" + row[3] + "<p>"
@@ -88,37 +87,37 @@ with con:
         maxWidth = 0
 
         for url in urls:
-            print url
+            print (url)
             #html_str = html_str + "<strong>" + str(url[0]) + "</strong><img src=\"" + url[1] + "\"/>"
             rCurId =  re.search(r'(bust=)(\d*)',url[1])
             curId = rCurId.group(2)
 
             rCurWidth =   re.search(r'(width=)(\d*)',url[1])
             curWidth = rCurWidth.group(2)
-            print "width:" + str(curWidth)
-            print "lastID" + str(lastId)
-            print "curID:" + str(curId)
-            print "maxWidth:"+str(maxWidth)
+            print ("width:" + str(curWidth))
+            print ("lastID" + str(lastId))
+            print ("curID:" + str(curId))
+            print ("maxWidth:"+str(maxWidth))
             if lastId != curId:
                 if maxUrl != "":
-                    print "newID!"
-                    print "Printing Max URL:" + maxUrl
+                    print ("newID!")
+                    print ("Printing Max URL:" + maxUrl)
                     html_str = html_str + "<td><img src=\"" + maxUrl + "\"/></td>"
                 maxUrl = str(url[1])
                 lastId = curId
                 maxWidth = curWidth
             else:
-                print str(curWidth) + ">" + str(maxWidth)
+                print (str(curWidth) + ">" + str(maxWidth))
                 if int(curWidth) > int(maxWidth):
-                    print "Setting Max Width:" + str(curWidth)
+                    print ("Setting Max Width:" + str(curWidth))
                     maxWidth = curWidth
-                    print "new Max Width:" + str(maxWidth)
+                    print ("new Max Width:" + str(maxWidth))
                     maxUrl = str(url[1])
-                    print "Maxwidth:" + str(maxWidth)
+                    print ("Maxwidth:" + str(maxWidth))
 
             #    if re.findall(r'')
 
-        print "Printing Max URL:" + maxUrl
+        print ("Printing Max URL:" + maxUrl)
         html_str = html_str + "<td><img src=\"" + maxUrl+ "\"/></td>"
 
 

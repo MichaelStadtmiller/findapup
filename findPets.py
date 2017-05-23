@@ -6,7 +6,6 @@ import sqlite3 as lite;
 # import sys;
 import json;
 
-
 with open("api_key.json") as json_file:
     api_key = json.load(json_file)
     print(api_key)
@@ -14,14 +13,23 @@ with open("api_key.json") as json_file:
 
 api = petfinder.PetFinderClient(api_key=api_key["api_key"], api_secret=api_key["api_secret"]);
 
+all_breeds = set(api.breed_list(animal='dog'))
+bad_breeds = set(['Pit Bull Terrier'])
+good_breeds = list(all_breeds - bad_breeds)
 
-"""breeds = api.breed_list(animal="dog");
-print(breeds);
-animal = api.pet_getrandom(animal="dog",output="full");
-print(animal);
-"""
+#       for pet in api.pet_find(location='45233', animal='dog', count=25):
+#               if set(pet['breeds']) - set(bad_breeds):
+#                       p.append(pet)
+
+#"""breeds = api.breed_list(animal="dog");
+#"""breeds = good_breeds
+#print(breeds);
+#animal = api.pet_getrandom(animal="dog",output="full");
+#print(animal);
+#"""
 #try:
-animal = api.pet_find(animal="dog",location="04350",count=200,size="M");
+
+animal = api.pet_find(animal="dog",location="45233",count=200,size="L",age="baby", breed="Bernese Mountain Dog");
 
 
 con = lite.connect('dogs.db')
@@ -37,9 +45,9 @@ with con:
     i = 1;
 
     for n in animal:
-        print "**********************\n";
-        print i;
-        print n["name"];
+        print ("**********************\n")
+        print (i)
+        print (n["name"])
         #print n["photos"][0]["url"]
         #print n["photos"][1]
         #print ','.join(n["photos"][0])
@@ -60,14 +68,14 @@ with con:
 
         sSQL =  "INSERT INTO Dogs VALUES(?,?,?,?,?,?,?,?,?,?);"
 
-        print sSQL
+	# print (sSQL)
 
         cur.execute(sSQL, (n["id"],n["age"],n["name"],n["description"],n["mix"],'-'.join(n["breeds"]),n["sex"],n["lastUpdate"],n["contact"]["state"],n["shelterId"]))
 
         for photo in n["photos"]:
             sSQL =  "INSERT INTO Photos VALUES(?,?);"
             cur.execute(sSQL,(n["id"],photo["url"]))
-            print sSQL
+            print (sSQL)
         con.commit()
             #except:
             #    print "broken"
