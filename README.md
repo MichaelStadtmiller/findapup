@@ -22,3 +22,7 @@ You need the followig:<br>
 5. Modify selectPets.py select statement to filter out pets 
 6. Run selectPets.py - This creates pets.html
 6. Open pets.html with your favorite web browser
+
+#Coders
+This was not my own code. I used an API for petfinder and another repository.... I will find and document here soon.
+https://github.com/gtaylor/petfinder-api 
