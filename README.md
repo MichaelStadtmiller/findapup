@@ -15,7 +15,7 @@ You need the followig:<br>
 
 #Usage
 1. Get an API key from https://www.petfinder.com/developers/api-key
-2. Put the API key and secret into api_key.json
+2. Rename api_key_sample.json to api_key.json. Save your credentials here. (.gitignore will not push api_key.json)
 3. Modify the findPets.py find call to include your zipcode etc:
     animal = api.pet_find(animal="dog",location="[yourZipCode]",count=200,size="M");
 4. Run the findPets.py script - This creates an sqlite database called dogs.db and fills it with pet info
