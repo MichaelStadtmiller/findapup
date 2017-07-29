@@ -7,12 +7,11 @@ The basic idea is:<br>
 1. findPets.py uses the api to pull pet info into an sqlite3 database<br>
 2. selectPets.py uses a query to select pets from the sqlite3 database and create a basic web page (pets.html)<br>
 
-This project is super rough, feel free to make it way better :)
-
 #Dependancies
 You need the followig:<br>
-1. Petfinder python library: https://pypi.python.org/pypi/petfinder/ <br>
-2. sqlite3: https://www.sqlite.org/
+1. Python3
+2. Petfinder python library: https://pypi.python.org/pypi/petfinder/ <br>
+3. sqlite3: https://www.sqlite.org/
 
 #Usage
 1. Get an API key from https://www.petfinder.com/developers/api-key
